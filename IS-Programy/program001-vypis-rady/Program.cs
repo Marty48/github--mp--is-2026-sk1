@@ -19,7 +19,37 @@ while(again.ToLower() == "a" )
     Console.WriteLine("*******Výpis řady********");
     Console.WriteLine("*************************");
 
-    //
+
+
+   
+    // Načtení prvního čísla řady
+    Console.Write("Zadejte první číslo řady (celé číslo): ");
+    int first;
+    while (!int.TryParse(Console.ReadLine(), out first)) 
+    {
+        Console.Write("Nezadali jste celé číslo. Zadejte první číslo řady znovu: ");
+    }
+
+
+
+
+    // Načtení koncového čísla řady
+    Console.Write("Zadejte poslední číslo řady (celé číslo): ");
+    int last;
+    while (!int.TryParse(Console.ReadLine(), out last)) 
+    {
+        Console.Write("Nezadali jste celé číslo. Zadejte poslední číslo řady znovu: ");
+    }
+
+
+    // Načtení diference s kontorlou kladného čísla
+    Console.Write("Zadejte diferenci (kladné celé číslo): ");
+    int step;
+    while (!int.TryParse(Console.ReadLine(), out step) || step <=0 ) 
+    {
+        Console.Write("Nezadali jste kladné celé číslo. Zadejte diferenci znovu: ");
+    }
+
 
 
     // Dotaz směrem k užiivateli na opakování
