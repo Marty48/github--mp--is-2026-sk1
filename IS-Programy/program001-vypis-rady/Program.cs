@@ -4,9 +4,22 @@
 // ToLower() převede vstup na malá písmena, takže program pokračuje při zadání "a" i "A"
 // Jakýkoliv jiný vstup program ukončí
 
-while(again, ToLower() == "a") {
-    
+while(again.ToLower() == "a" )
+{
+    // Vymazání konzole
+    Console.Clear();
 
+
+    // Hlavička programu
+    Console.WriteLine("*************************");
+    Console.WriteLine("*******Výpis řady********");
+    Console.WriteLine("*************************");
+    Console.WriteLine("*******Výpis řady********");
+    Console.WriteLine("*************************");
+    Console.WriteLine("*******Výpis řady********");
+    Console.WriteLine("*************************");
+
+    //
 
 
     // Dotaz směrem k užiivateli na opakování
