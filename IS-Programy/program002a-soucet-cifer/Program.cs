@@ -1,4 +1,6 @@
-﻿﻿string again = "a";
+﻿using System.Data.Common;
+
+string again = "a";
 
 // Řídící cyklus programu
 // ToLower() převede vstup na malá písmena, takže program pokračuje při zadání "a" i "A"  
@@ -19,7 +21,7 @@ while(again.ToLower() == "a" )
 
     // Načtení první hodnoty 
     Console.Write("Zadejte celé číslo : ");
-    int aaa;
+    int number;
     while(!int.TryParse(Console.ReadLine(), out number)) {
         Console.Write("Nezadali jste celé číslo. Zadejte číslo znovu: ");
     }
@@ -38,7 +40,43 @@ while(again.ToLower() == "a" )
     int numberBackup = number;
     int sum = 0;    //Neutrální hodnota pro sčítání je 0
     int digit;  // Proměnna pro uložení právě zjištěné cifry/číslice
-    
+
+
+    //Ošetření záporných čísel (znaménko nemá vliv na číslice
+    if (number < 0)
+    {
+        number = -number;
+    }
+
+    //Zvláštní případ pro nulu
+    if (number == 0) {
+        sum = 0; 
+    }
+    else {
+        Console.WriteLine();
+        Console.WriteLine("Průběh rozkladu čísla na číslice (z prava)");
+
+        // Matemartický rozklad čísla pomocí cyklu
+        // Využíváme operaci modulo - určení zbytku po celočíselném dělení
+        while(number > 0)
+        {
+            digit = number % 10;    // Modulo 10 - získáme poslední číslici
+            sum = sum + digit;      // Příčtení číslice k celkovému součinu
+
+            Console.WriteLine($"Získaná číslice: {digit}");
+
+            number = number / 10;   // Celočíselné dělení 10 odstranění posledních číslic 
+        }
+
+    }
+
+    // Výpis výsledků
+    Console.WriteLine();
+    Console.WriteLine("=================");
+    Console.WriteLine($"Součet číslic čísla {numberBackup} je {sum}.");
+    Console.WriteLine("=================");
+    Console.WriteLine();
+
 
 
     // Dotaz směrem k uživateli na opakování
