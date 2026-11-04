@@ -40,6 +40,7 @@ while(again.ToLower() == "a" )
     int numberBackup = number;
     int sum = 0;    //Neutrální hodnota pro sčítání je 0
     int digit;  // Proměnna pro uložení právě zjištěné cifry/číslice
+    int product = 1; // <--- PŘIDAT TENTO ŘÁDEK (neutrální hodnota pro násobení)
 
 
     //Ošetření záporných čísel (znaménko nemá vliv na číslice
@@ -62,6 +63,7 @@ while(again.ToLower() == "a" )
         {
             digit = number % 10;    // Modulo 10 - získáme poslední číslici
             sum = sum + digit;      // Příčtení číslice k celkovému součinu
+            product = product * digit; // <--- PŘIDAT TENTO ŘÁDEK
 
             Console.WriteLine($"Získaná číslice: {digit}");
 
@@ -72,8 +74,19 @@ while(again.ToLower() == "a" )
 
     // Výpis výsledků
     Console.WriteLine();
-    Console.WriteLine("=================");
+    Console.WriteLine("==========================");
     Console.WriteLine($"Součet číslic čísla {numberBackup} je {sum}.");
+    Console.WriteLine("==========================");
+    Console.WriteLine();
+
+
+
+
+
+    // Ciferný součin
+    Console.WriteLine();
+    Console.WriteLine("=================");
+    Console.WriteLine($"Součin číslic čísla {numberBackup} je {product}.");
     Console.WriteLine("=================");
     Console.WriteLine();
 
