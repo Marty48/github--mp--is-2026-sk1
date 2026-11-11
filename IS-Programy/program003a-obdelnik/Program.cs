@@ -15,6 +15,7 @@ while (again.ToLower() == "a")
     int width;
     while (!int.TryParse(Console.ReadLine(), out width) || width <= 0)
     {
+
         Console.Write("Nezadali jste celé kladné číslo. Zadejte šířku znovu: ");
     }
 
@@ -28,27 +29,44 @@ while (again.ToLower() == "a")
 
     Console.WriteLine();
     Console.WriteLine("********************************");
-    Console.WriteLine($"Vykresluji obrazec o rozměrech {width} × {height}:");
+    Console.WriteLine($"Šířka: {width}; Výška: {height};");
     Console.WriteLine("********************************");
     Console.WriteLine();
 
-    // 3. Jádro algoritmu: Vnořený cyklus pro 2D rastr
-    // Vnější cyklus počítá řádky (shora dolů)
+
+
+    //Jádro vvykreslovacího algoritmu
+    // Vnější cyklus, který bude hlídat počet řádků (shora dolů)
     for (int i = 1; i <= height; i++)
     {
-        // Vnitřní cyklus sází sloupce v aktuálním řádku (zleva doprava)
+        if (i % 2 == 0)
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+        }
+            
+
+
+        // Vnitřní cyklus, který se postará aby se v každém řádku vykreslí zprávný počet hvězdiček (zleva doprava)
         for (int j = 1; j <= width; j++)
         {
             Console.Write("* ");
-            System.Threading.Thread.Sleep(System.TimeSpan.FromMilliseconds(100)); // Efekt animace vykreslování
+            System.Threading.Thread.Sleep(System.TimeSpan.FromMilliseconds(5)); // Zpoždění
+
         }
 
-        // Konec řádku -> přesun kurzoru na nový řádek
         Console.WriteLine();
     }
+    Console.ResetColor();
+
+
 
     // 4. Dotaz na opakování
     Console.WriteLine();
     Console.Write("Pro opakování programu stiskněte 'a' a potvrďte Enterem: ");
     again = Console.ReadLine() ?? "";
+    
 }
