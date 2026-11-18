@@ -1,4 +1,4 @@
-﻿﻿string again = "a";
+﻿﻿﻿string again = "a";
 
 // Řídící cyklus programu
 // ToLower() převede vstup na malá písmena, takže program pokračuje při zadání "a" i "A"  
@@ -38,7 +38,6 @@ while(again.ToLower() == "a" )
         Console.Write("Nezadali jste celé číslo větší nebo rovno hodnotě dolní meze. Zadejte horní mez znovu: ");
     }
 
-    // Rekapitulace zadaných hodnot
     // Rekapitulace zadaných vstupních hodnot
     Console.WriteLine();
     Console.WriteLine("=============================");
@@ -48,6 +47,50 @@ while(again.ToLower() == "a" )
     Console.WriteLine();
 
     // Zde budeme pokračovat konkrétním algoritmem
+
+    // Deklarace a alokace pole v paměti
+    int[] myRandNumbs = new int[n];
+
+    // Inicializace generátoru nahodných čísel
+    Random myRandNumb = new Random();
+    // Random myRandNumb = new Random(50); 
+
+    // Generování náhodných čísel a jejich uložení do pole
+    Console.WriteLine("Vygenerovaná pseudonáhodná čísla: ");
+    for(int i = 0; i < myRandNumbs.Length; i++)
+    {
+        myRandNumbs[i] = myRandNumb.Next(lowerBound, upperBound+1);
+        Console.Write($"{myRandNumbs[i]}; ");
+    }
+
+    // Počítání kladných a záporných čísel
+    int positiveCount = 0;
+    int negativeCount = 0;
+    int zeroCount = 0;
+
+    for (int i = 0; i < myRandNumbs.Length; i++)
+    {
+        if (myRandNumbs[i] > 0)
+        {
+            positiveCount++;
+        }
+        else if (myRandNumbs[i] < 0)
+        {
+            negativeCount++;
+        }
+        else
+        {
+            zeroCount++;
+        }
+    }
+
+    // Výpis počtu kladných a záporných čísel
+    Console.WriteLine();
+    Console.WriteLine();
+    Console.WriteLine($"Počet kladných čísel: {positiveCount}");
+    Console.WriteLine($"Počet záporných čísel: {negativeCount}");
+    Console.WriteLine($"Počet nul: {zeroCount}");
+
 
 
     // Dotaz směrem k uživateli na opakování
